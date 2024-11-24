@@ -1,4 +1,6 @@
+
 {
+
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -28,13 +30,21 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+    "input": "src/assets",
+    "output": "assets"
               }
+              
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+               "node_modules/swiper/swiper-bundle.min.css",
+               "node_modules/slick-carousel/slick/slick.css",
+              "node_modules/slick-carousel/slick/slick-theme.css"
             ],
-            "scripts": []
+            "scripts": [
+               "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,16 +97,21 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+               "node_modules/swiper/swiper-bundle.min.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

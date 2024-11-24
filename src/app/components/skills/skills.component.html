@@ -1,0 +1,42 @@
+<section id="skills" class="skills-section">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">Explore my technical expertise categorized for better understanding.</p>
+
+    <div class="skills-and-chart-wrapper">
+      <!-- Skills Slider Wrapper -->
+      <div class="skills-slider-wrapper">
+        <div class="skills-slider">
+          <div
+            class="skill-card"
+            *ngFor="let skillCategory of skills; let i = index"
+            [ngClass]="{'active': currentIndex === i}">
+            <h3>{{ skillCategory.category }}</h3>
+            <ul>
+              <li *ngFor="let skill of skillCategory.skills">
+                <i [class]="skill.icon"></i> {{ skill.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Bullet Indicators -->
+        <div class="bullets-wrapper">
+          <div
+            *ngFor="let bullet of [].constructor(skills.length); let i = index"
+            class="bullet"
+            [ngClass]="{'active': currentIndex === i}"
+            (click)="goToSlide(i)">
+          </div>
+        </div>
+        <div class="skills-bottom-heading">
+          <h4>Technical Skills Overview</h4>
+        </div>
+      </div>
+
+      <!-- Doughnut Chart Wrapper -->
+      <div class="skills-chart-wrapper">
+        <canvas id="skillsChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>

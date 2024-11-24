@@ -1,0 +1,105 @@
+.navbarContainer {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  z-index: 1000;
+}
+
+.navbar {
+  width: 100%;
+  height: 10vh;
+  background: linear-gradient(135deg, #1c1c1c, #4f4f4f, #333333); /* Matching gradient with the section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #333333, #4f4f4f, #1c1c1c); /* Invert gradient on hover for interaction */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+  }
+}
+
+.menuWrapper {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+    font-size: 0.8rem !important;
+  }
+
+  @media (max-width: 600px) {
+    gap: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    gap: 2rem;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    gap: 2rem;
+    font-size: 1.1rem;
+  }
+
+  @media (min-width: 1600px) {
+    gap: 2rem;
+    font-size: 2.5rem;
+  }
+}
+
+.menuElement {
+  opacity: 0.7;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  font-size: inherit;
+  font-weight: normal;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.active {
+    color: #FF7A00; /* Highlight active menu item */
+    font-weight: bold;
+    text-decoration: underline;
+    transform: scale(1.1); /* Scale up active item */
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05); /* Slightly scale up on hover */
+  }
+}
+
+/* Animation on Section Click */
+@keyframes sectionClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.section-clicked {
+  animation: sectionClick 0.3s ease-out;
+}
